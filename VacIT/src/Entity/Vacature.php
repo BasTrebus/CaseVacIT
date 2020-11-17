@@ -30,13 +30,13 @@ class Vacature
     private $niveau;
 
     /**
-     * @ORM\ManyToOne(targetEntity=platform::class, inversedBy="vacatures")
+     * @ORM\ManyToOne(targetEntity=Platform::class, inversedBy="vacatures")
      * @ORM\JoinColumn(nullable=false)
      */
     private $platform;
 
     /**
-     * @ORM\ManyToOne(targetEntity=user::class, inversedBy="vacatures")
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="vacatures")
      * @ORM\JoinColumn(nullable=false)
      */
     private $werkgever;

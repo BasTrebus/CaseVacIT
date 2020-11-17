@@ -18,6 +18,34 @@ class VacatureRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Vacature::class);
     }
+    
+    public function getVacature($id)
+    {
+        $vacature = $this->find(['id' => $id]);
+        return(array("vacature" => $vacature));
+    }
+
+    public function getVacatureWerkgever($werkgever_id)
+    {
+        $vacatures_werkgever = $this->findBy($werkgever_id);
+        return($vacatures_werkgever);
+    }
+
+    public function getLastVacatures($num)
+    {
+
+        return $this->createQueryBuilder('e')->
+            orderBy('e.datum', 'DESC')->
+            setMaxResults($num)->
+            getQuery()->
+            getResult();
+    }
+
+    public function getAllVacatures()
+    {
+        $vacatures = $this->findAll();
+        return($vacatures);
+    }
 
     // /**
     //  * @return Vacature[] Returns an array of Vacature objects

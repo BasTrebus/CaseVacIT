@@ -1,0 +1,12 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<h2 CLASS="orange">
+REGISTREER
+</h2>
+
+{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="image" src='..\assets\Images\UI\right-arrow.png' width="50px" value="{{ 'registration.submit'|trans }}" />
+    </div>
+{{ form_end(form) }}
