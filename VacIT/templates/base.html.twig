@@ -2,11 +2,19 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}VacIT{% endblock %}</title>
+        <link href="{{ asset('/assets/css/foundation.css') }}" rel="stylesheet"/>
+        <link href="{{ asset('/assets/css/main.css') }}" rel="stylesheet"/>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <div>
+            {% include "header.html.twig" %}
+        </div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        <div>
+            {% include "footer.html.twig" %}
+        </div>
     </body>
 </html>

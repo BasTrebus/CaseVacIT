@@ -1,0 +1,134 @@
+.p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: BebasNeue;
+}
+
+.orange{
+    color: #f15b24
+}
+
+.white {
+    color: white;
+}
+
+h4.white{
+    padding-top: 10px;
+}
+
+.footer-text{
+    font-size: 10pt;
+}
+
+.header {
+    max-width: 100%;
+    border-width: 100%;
+    margin-bottom: 15px;
+}
+
+.header-logo {
+    background-color: #333333;
+    height: 130px;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.footer-box {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.footer {
+    background-color: #333333;
+    position: relative; /*flex*/
+    left: 0;
+    bottom: 0;
+    height: 130px;
+    width: 100%;
+}
+
+.skew-header {
+    top: 130px;
+    height: 30px;
+    background-color: #f15b24;
+    clip-path: polygon(0 0, 0 100%, 200% 0);
+    /* change the calc height to a percentage height to get alternate responsive behavior*/
+}
+
+.skew-header-shadow{
+    filter: drop-shadow(-0px 6px 5px rgb(136, 136, 136));
+}
+
+.skew-footer {
+    bottom: 130px;
+    height: 30px;
+    background-color: #f15b24;
+    clip-path: polygon(-100% 100%, 100% 100%, 100% 5%);
+    
+}
+
+.skew-footer-shadow{
+    margin-top: 15px;
+    filter: drop-shadow(-0px -6px 5px rgb(136, 136, 136));
+}
+
+.skew-footer1 {
+    position: absolute;
+    right: 0px;
+    bottom: 130px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 30px 3500px;
+    border-color: transparent transparent #f15b24 transparent;
+    -webkit-filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
+    filter: drop-shadow(0px 1px 5px rgba(0,0,0,.5));
+    overflow: hidden;
+}
+
+#hexagon {
+    width: 100px;
+    height: 57.735px;
+    background: red;
+    position: relative;
+  }
+  #hexagon::before {
+    content: "";
+    position: absolute;
+    top: -28.8675px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 28.8675px solid red;
+  }
+  #hexagon::after {
+    content: "";
+    position: absolute;
+    bottom: -28.8675px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 28.8675px solid red;
+  }
+
+html, body
+{
+    margin: 0px; padding: 0px
+}
+
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('/assets/Fonts/BebasNeue/BebasNeue-Regular.ttf')
+}

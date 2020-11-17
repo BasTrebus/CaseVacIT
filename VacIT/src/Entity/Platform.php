@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PlatformRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,16 @@ class Platform
      * @ORM\Column(type="string", length=255)
      */
     private $afbeelding;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Vacature::class, mappedBy="platform")
+     */
+    private $vacatures;
+
+    public function __construct()
+    {
+        $this->vacatures = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,6 +64,36 @@ class Platform
     public function setAfbeelding(string $afbeelding): self
     {
         $this->afbeelding = $afbeelding;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Vacature[]
+     */
+    public function getVacatures(): Collection
+    {
+        return $this->vacatures;
+    }
+
+    public function addVacature(Vacature $vacature): self
+    {
+        if (!$this->vacatures->contains($vacature)) {
+            $this->vacatures[] = $vacature;
+            $vacature->setPlatform($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVacature(Vacature $vacature): self
+    {
+        if ($this->vacatures->removeElement($vacature)) {
+            // set the owning side to null (unless already changed)
+            if ($vacature->getPlatform() === $this) {
+                $vacature->setPlatform(null);
+            }
+        }
 
         return $this;
     }
