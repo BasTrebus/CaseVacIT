@@ -21,37 +21,37 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $afbeelding;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $naam;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $adres;
 
     /**
-     * @ORM\Column(type="string", length=6)
+     * @ORM\Column(type="string", length=6, nullable=true)
      */
     private $postcode;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=30, nullable=true)
      */
     private $plaats;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=20, nullable=true)
      */
     private $telefoon;
 
     /**
-     * @ORM\Column(type="string", length=4000)
+     * @ORM\Column(type="string", length=4000, nullable=true)
      */
     private $tekst;
 

@@ -1,10 +1,26 @@
 <div class='header'>
-    <div class="row">
-        <div class="small-12 collumns">
-            <div class='header-logo'>
-                <a href="{{ path('homepage') }}">
-                    <img  id='logo' src="{{ asset('/assets/images/logo/logo.png') }}" alt="logo" width="200px">
-                </a>
+    <div class='header-logo'>
+            <div class='grid-x'>
+                <div class='cell medium-4'>
+                    <a href="{{ path('homepage') }}">
+                        <img  id='logo' src="{{ asset('/assets/images/logo/logo.png') }}" alt="logo" width="200px">
+                    </a>
+                </div>  
+                <div class='cell medium-8'>
+                    <div data-responsive-toggle="main-nav" data-hide-for="large">
+                        <button class="menu-icon" type="button" data-toggle="main-nav"></button>
+                        <div class="title-bar-title white">Menu</div>
+                    </div>
+
+                    <div id="main-nav">
+                        <div class="top-bar-right">
+                            <ul class="menu vertical medium-horizontal">
+                                <li><a href="Search"> Login </a></li>
+                                <li><a href="Search"> Register </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="skew-header-shadow">
                 <div class="skew-header"> </div>

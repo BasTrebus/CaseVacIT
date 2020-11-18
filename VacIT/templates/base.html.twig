@@ -5,16 +5,23 @@
         <title>{% block title %}VacIT{% endblock %}</title>
         <link href="{{ asset('/assets/css/foundation.css') }}" rel="stylesheet"/>
         <link href="{{ asset('/assets/css/main.css') }}" rel="stylesheet"/>
+        <script src="{{ asset('assets/js/vendor/jquery.js')}}"></script>
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
-        <div>
+    <body class="Site">
+        <header class="header">
             {% include "header.html.twig" %}
-        </div>
+        </header>
+        <main class="Content">
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
-        <div>
+        </main>
+        <footer class="footer-flex">
             {% include "footer.html.twig" %}
-        </div>
+        </footer>
+    <script src="{{ asset('assets/js/vendor/jquery.js')}}"></script>
+    <script src="{{ asset('assets/js/vendor/what-input.js')}}"></script>
+    <script src="{{ asset('assets/js/vendor/foundation.js')}}"></script>
+    <script src="{{ asset('assets/js/app.js')}}"></script>
     </body>
 </html>

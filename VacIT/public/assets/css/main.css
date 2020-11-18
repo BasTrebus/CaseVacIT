@@ -1,3 +1,18 @@
+html .Site{
+    height: 100%;
+}
+
+.Site {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 100vh;
+}
+
+.Content {
+    flex: 1 0 auto;
+}
+
 .p {
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -39,20 +54,22 @@ h4.white{
 }
 
 .footer-box {
-    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
-    overflow: hidden;
 }
 
 .footer {
     background-color: #333333;
-    position: relative; /*flex*/
     left: 0;
     bottom: 0;
     height: 130px;
     width: 100%;
+}
+
+.footer-flex{
+    flex-shrink: 0;
+    padding: 0px;
 }
 
 .skew-header {
@@ -81,7 +98,7 @@ h4.white{
 }
 
 .skew-footer1 {
-    position: absolute;
+    /* position: absolute; */
     right: 0px;
     bottom: 130px;
     width: 0;
@@ -91,7 +108,7 @@ h4.white{
     border-color: transparent transparent #f15b24 transparent;
     -webkit-filter: drop-shadow(1px 1px 1px rgba(0,0,0,.5));
     filter: drop-shadow(0px 1px 5px rgba(0,0,0,.5));
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 #hexagon {
