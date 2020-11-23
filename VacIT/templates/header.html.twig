@@ -1,22 +1,23 @@
 <div class='header'>
     <div class='header-logo'>
             <div class='grid-x'>
-                <div class='cell medium-4'>
+                <div class='cell medium-2'>
                     <a href="{{ path('homepage') }}">
                         <img  id='logo' src="{{ asset('/assets/images/logo/logo.png') }}" alt="logo" width="200px">
                     </a>
                 </div>  
-                <div class='cell medium-8'>
-                    <div data-responsive-toggle="main-nav" data-hide-for="large">
+                <div class='cell medium-9'>
+                </div>
+                <div class='cell small-10 medium-1'>
+                    <div data-responsive-toggle="main-nav" data-hide-for="medium">
                         <button class="menu-icon" type="button" data-toggle="main-nav"></button>
                         <div class="title-bar-title white">Menu</div>
                     </div>
-
-                    <div id="main-nav">
+                    <div class="main-menu" id="main-nav">
                         <div class="top-bar-right">
                             <ul class="menu vertical medium-horizontal">
-                                <li><a href="Search"> Login </a></li>
-                                <li><a href="Search"> Register </a></li>
+                                <li><a href="{{ path('fos_user_security_login') }}"><h5> Login </h5></a></li>
+                                <li><a href="{{ path('fos_user_registration_register') }}"><h5> Register </h5></a></li>
                             </ul>
                         </div>
                     </div>

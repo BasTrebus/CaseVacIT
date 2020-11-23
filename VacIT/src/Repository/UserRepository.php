@@ -21,7 +21,26 @@ class UserRepository extends ServiceEntityRepository
 
     public function addInfo($params)
     {
+        $user = $this->find($params["id"]);
+
+        $em = $this->getEntityManager();
+
+        $user->setAfbeelding($params["afbeelding"]);
+        $user->setNaam($params["achternaam"]);
+        $user->setAdres($params["adres"]);
+        $user->setPostcode($params["postcode"]);
+        $user->setPlaats($params["plaats"]);
+        $user->setTelefoon($params["telefoon"]);
+        $user->setTekst($params["tekst"]);
+        $user->setRoepnaam($params["roepnaam"]);
+        $user->setVoorletters($params["voorletters"]);
+        $user->setGeboortedatum($params["geboortedatum"]);
+        /* $user->setCv($params["CV"]); */
+
+        $em->persist($user);
+        $em->flush();
         
+        return($user);
     }
 
     // /**

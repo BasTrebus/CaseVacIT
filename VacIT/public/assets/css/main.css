@@ -111,6 +111,17 @@ h4.white{
     /* overflow: hidden; */
 }
 
+.align-right-bottom {
+right: 20px;
+position: absolute;
+top: 80px;
+}
+
+.main-menu {
+    background-color: #333333;
+    overflow: hidden;
+}
+
 #hexagon {
     width: 100px;
     height: 57.735px;
@@ -144,6 +155,30 @@ html, body
 {
     margin: 0px; padding: 0px
 }
+
+a:link {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #f15b24;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:active {
+    color: white;
+    background-color: transparent;
+    text-decoration: underline;
+  }
 
 @font-face {
     font-family: 'BebasNeue';

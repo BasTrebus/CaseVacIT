@@ -17,6 +17,7 @@ class UserController extends AbstractController
 {
     /**
      * @Route("/", name="user")
+     * @Template
      */
     public function index(): Response
     {
@@ -28,10 +29,10 @@ class UserController extends AbstractController
     /**
      * @Route("/enterInfo", name="enterInfo")
      */
-    public function index2(): Response
+    public function enterInfo(): Response
     {
-        $user = $this->getUser();
-        $user_id = $user->getId();
-        
+        $user_obj = $this->getUser();
+        $user["id"] = $user_obj->getId();
+        return $this->render('user/enterInfo.html.twig');
     }
 }
