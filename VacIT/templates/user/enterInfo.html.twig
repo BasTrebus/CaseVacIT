@@ -1,9 +1,51 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+
+{% endblock %}
+
 {% block title %}Hello UserController!{% endblock %}
 
 {% block body %}
 
+<form>
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class='cell small-10 medium-8 large-8'>
+                <label><h4>Naam</h4>
+                    <input type="text" id="roepnaam" placeholder="Roepnaam">
+                    <input type="text" id="voorletters" placeholder="Voorletters (bijv. A.B.C.)">
+                    <input type="text" id="achternaam" placeholder="Achternaam">
+                </label>
+                <label><h4>Geboortedatum</h4>
+                    <input type="date" id="geboortedatum" placeholder="01-01-1960">
+                </label>
+                <br>
+                <label><h4>Adres</h4>
+                    <input type="text" id="adres" placeholder="straatnaam + huisnummer">
+                    <input type="text" id="postcode" placeholder="1234AB">
+                    <input type="text" id="city" placeholder="woonplaats">
+                </label>
+                <br>
+                <label><h4>Telefoonnummer</h4>
+                    <input type="tel" id="telefoon" pattern="+[0-9]{2} [0-9]{9}" placeholder="+31 612345678">
+                </label>
+                <br>
+                <div class="page-wrapper box-content">
+                <label><h4>Geef je motivatie</h4>
+                    <textarea id="tekst" class="content" name="content"></textarea>
+                </label>
+                </div>
+                <br>
 
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready(function() {
+        $('.content').richText();
+    });
+</script>
 
 {% endblock %}
