@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use App\Entity\User;
+use App\Entity\Sollicitatie;
 
 
 /**
@@ -35,4 +36,20 @@ class UserController extends AbstractController
         $user["id"] = $user_obj->getId();
         return $this->render('user/enterInfo.html.twig');
     }
+
+    /**
+     * @Route("/sollicitaties", name="Sollicitaties")
+     * @Template
+     */
+    public function sollicitaties()
+    {
+        $user = $this->getUser();
+        $user_id = $user->getId();
+
+        $rep = $this->getDoctrine()->getRepository(Sollicitatie::class);
+        $data = $rep->getSollicitaties($user_id);
+
+        return $data;
+    }
+
 }

@@ -21,9 +21,8 @@ class HomepageController extends AbstractController
     public function index()
     {
         $rep = $this->getDoctrine()->getRepository(Vacature::class);
-        $data1 = $rep->getAllVacatures();
-        $data2 = $rep->getLastVacatures(5);
+        $data = $rep->getAllVacatures();
 
-        return array("carousel" => $data1, "laatste5" => $data2);
+        return array("vacatures" => $data);
     }
 }

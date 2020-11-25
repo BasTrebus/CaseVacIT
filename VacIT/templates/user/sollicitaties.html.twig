@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mijn Sollicitaties{% endblock %}
+
+{% block body %}
+
+<div class="grid-x">
+    <div class="cell auto">
+        <h3>Mijn Sollicitaties</h3>
+        <table>
+            <thead>
+                <th>Datum</th>
+                <th>Vacature</th>
+                <th>Bedrijf</th>
+                <th>Uitgenodigd</th>
+            </thead>
+             <tbody>
+                {# {%for data in sollicitaties %}
+                    <tr>
+                        <td>{{data.datetime|date("d/m/Y H:i:s")}}</td>
+                        <td><a href="/vacature/{{data.sollicitatie.vacature.id}}" class="link">{{data.sollicitatie.vacature.titel}}
+                            </a>
+                        </td> 
+                        <td><a href="/profiel/show/{{data.sollicitatie.werkgever.id}}" class="link"> {{data.sollicitatie.werkgever.naam}}</a>
+                        </td>
+                        <td>{%if data.sollicitatie.uitgonodigd == 1 %} &#9989;
+                        
+                        {%endif%}
+                        </td>
+                    </tr>
+                {%endfor%} #}
+
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+       {{ dump (sollicitaties)}}
+{% endblock body %}

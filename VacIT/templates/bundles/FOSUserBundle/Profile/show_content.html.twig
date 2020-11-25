@@ -1,6 +1,18 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="fos_user_user_show">
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    <p>Afbeelding: {{ user.afbeelding }}</p>
+    <p>Voorletters: {{ user.voorletters }}</p>
+    <p>Roepnaam: {{ user.roepnaam }}</p>
+    <p>Achternaam: {{ user.naam }}</p>
+    <p>geboortedatum: {{ user.geboortedatum|date("d/m/Y") }}</p>
+    <p>Adres: {{ user.adres }}</p>
+    <p>Postcode:: {{ user.postcode }}</p>
+    <p>Woonplaats: {{ user.plaats }}</p>
+    <p>Telefoonnummer: {{ user.telefoon }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+    <p>Motivatie: {{ user.tekst }}</p>
+    <p>CV: {{ user.cv }}</p>
+
+    <a href="{{ path('enterInfo')}}">Bewerk</a>
 </div>

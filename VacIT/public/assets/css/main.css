@@ -151,34 +151,33 @@ top: 80px;
     border-top: 28.8675px solid red;
   }
 
-html, body
-{
+html, body {
     margin: 0px; padding: 0px
 }
 
-a:link {
+a.header:link {
     color: white;
     background-color: transparent;
     text-decoration: none;
-  }
-  
-  a:visited {
+}
+
+a.header:visited {
     color: white;
     background-color: transparent;
     text-decoration: none;
-  }
-  
-  a:hover {
+}
+
+a.header:hover {
     color: #f15b24;
     background-color: transparent;
     text-decoration: none;
-  }
-  
-  a:active {
+}
+
+a.header:active {
     color: white;
     background-color: transparent;
     text-decoration: underline;
-  }
+}
 
 @font-face {
     font-family: 'BebasNeue';

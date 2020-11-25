@@ -3,21 +3,21 @@
 {% block title %}Hello HomepageController!{% endblock %}
 
 {% block body %}
-{% for vacature in carousel %}
+{% for vacature in vacatures %}
     <div class="vacature">
         <h4>{{ vacature.titel }}</h4>
         <p>{{ vacature.tekst }}
         <a href="{{ path('vacature', { "id": vacature.id}) }}">Bekijk</a>
     </div>
 {% endfor %}
-{% for vacature in laatste5 %}
-    <div class="vacature">
-        <h4>{{ vacature.titel }}</h4>
-        <p>{{ vacature.tekst }}
-        <a href="{{ path('vacature', { "id": vacature.id}) }}">Bekijk</a>
-    </div>
+{% for child in vacatures |slice(0, 5) %}
+    <li>
+        <h4>{{ child.titel }}</h4>
+        <a href="{{ path('vacature', { "id": child.id}) }}">Bekijk</a>
+    </li>
 {% endfor %}
+</ul>
 <pre>
-    {{ dump(carousel) }}
+    {{ dump(vacatures) }}
 </pre>
 {% endblock %}

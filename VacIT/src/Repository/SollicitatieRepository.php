@@ -54,7 +54,8 @@ class SollicitatieRepository extends ServiceEntityRepository
 
     public function getSollicitaties($user_id)
     {
-
+        $sollicitaties = $this->findBy(['kandidaat' => $user_id]);
+        return(array("sollicitaties" => $sollicitaties));
     }
 
     // /**

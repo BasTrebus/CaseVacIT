@@ -15,12 +15,12 @@
                         <div class="top-bar-right">
                             <ul class="menu vertical medium-horizontal">
                                 {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                    <li><a href="{{ path('fos_user_profile_show') }}"><h5>Mijn Profiel</h5></a></li>
-                                    {# <li><a href="{{ path('mijnsollicitaties', {'user_id': app.user.id }) }}"><h5>Mijn Sollicitaties</h5></a></li> #}
-                                    <li><a href="{{ path('fos_user_security_logout') }}"><h5>{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</h5></a></li>
+                                    <li><a class="header" href="{{ path('fos_user_profile_show') }}"><h5>Mijn Profiel</h5></a></li>
+                                    <li><a class="header" href="{{ path('Sollicitaties') }}"><h5>Mijn Sollicitaties</h5></a></li>
+                                    <li><a class="header" href="{{ path('fos_user_security_logout') }}"><h5>{{ 'layout.logout'|trans({}, 'FOSUserBundle') }}</h5></a></li>
                                 {% else %}
-                                    <li><a href="{{ path('fos_user_security_login') }}"><h5>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</h5></a></li>
-                                    <li><a href="{{ path('fos_user_registration_register') }}"><h5>{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</h5></a></li>
+                                    <li><a class="header" href="{{ path('fos_user_security_login') }}"><h5>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</h5></a></li>
+                                    <li><a class="header" href="{{ path('fos_user_registration_register') }}"><h5>{{ 'layout.register'|trans({}, 'FOSUserBundle') }}</h5></a></li>
                                 {% endif %}
                             </ul>
                         </div>
