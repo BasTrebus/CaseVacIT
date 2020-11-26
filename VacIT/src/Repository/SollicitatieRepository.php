@@ -58,6 +58,23 @@ class SollicitatieRepository extends ServiceEntityRepository
         return(array("sollicitaties" => $sollicitaties));
     }
 
+    public function uitnodigen($params)
+    {
+        $em = $this->getEntityManager();
+        $sollicitatie = $this->find($params["id"]);
+
+        if($sollicitatie["uitgenodigd"] == 0) {
+            $sollicitatie->setUitgenodigd(1);
+        } else {
+            $sollicitatie->setUitgenodigd(0);
+        }
+
+        $em->persist($sollicitatie);
+        $em->flush();
+
+        return($sollicitatie);
+    }
+
     // /**
     //  * @return Sollicitatie[] Returns an array of Sollicitatie objects
     //  */
