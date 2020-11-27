@@ -40,12 +40,10 @@ h4.white{
 .header {
     max-width: 100%;
     border-width: 100%;
-    margin-bottom: 15px;
 }
 
 .header-logo {
     background-color: #333333;
-    height: 130px;
     width: 100%;
     left: 0px;
     top: 0px;
@@ -184,8 +182,15 @@ a.header:active {
     src: url('/assets/Fonts/BebasNeue/BebasNeue-Regular.ttf')
 }
 
-.btn {
+.btn-unclicked {
     background-color: #f15b24;
     color: white;
     padding: 6px;
+}
+
+.btn-clicked {
+    background-color: whitesmoke;
+    color: gray;
+    padding: 6px;
+    border: gray 1px;
 }

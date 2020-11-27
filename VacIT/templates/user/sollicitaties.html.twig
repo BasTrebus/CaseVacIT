@@ -5,20 +5,20 @@
 {# {% block JQuery %}
     {% for data in sollicitaties %}
 
-        $(".btn-uitnodigen").click( function() {
-                    var sollicitatie_id = {{data.id}};
-                    
-                    $.ajax({
-                        url: "http://localhost/verukkulluk/ajax/favorite.php",
-                        method: "POST",
-                        data: { sollicitatie_id },
-                        success: function(response) { 
-                            alert(response.melding);
-                            
-                            console.log( response )
-                        }
-                    })
-                });
+    $(".btn-uitnodigen").click( function() {
+            var sollicitatie_id = {{data.id}};
+            
+            $.ajax({
+                url: "{{ path }}}}",
+                method: "POST",
+                data: { gerecht_id: gerecht_id, user_id: user_id },
+                success: function(response) { 
+                    $(".btn-uitnodigen").removeClass("btn-unclicked");
+                    $(".btn-uitnodigen").addClass("btn-clicked");
+                    console.log( response )
+                }
+            })
+        });
     {% endfor %}
 {% endblock %} #}
 
@@ -48,7 +48,11 @@
                             <td><a href="/profile/{{data.kandidaat.id}}" class="link">{{data.kandidaat.voorletters}} {{data.kandidaat.naam}}</a>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-uitnodigen">Uitnodigen</button>
+                                {% if (data.uitgenodigd == 0) %}
+                                    <button type="button" class="btn-uitnodigen btn-unclicked">Uitnodigen</button>
+                                {% else %}
+                                    <button type="button" class="btn-uitnodigen btn-clicked">Uitnodigen</button>
+                                {% endif %}
                             </td>
                         </tr>
                     {% endfor %}
