@@ -2,6 +2,26 @@
 
 {% block title %}Mijn Sollicitaties{% endblock %}
 
+{# {% block JQuery %}
+    {% for data in sollicitaties %}
+
+        $(".btn-uitnodigen").click( function() {
+                    var sollicitatie_id = {{data.id}};
+                    
+                    $.ajax({
+                        url: "http://localhost/verukkulluk/ajax/favorite.php",
+                        method: "POST",
+                        data: { sollicitatie_id },
+                        success: function(response) { 
+                            alert(response.melding);
+                            
+                            console.log( response )
+                        }
+                    })
+                });
+    {% endfor %}
+{% endblock %} #}
+
 {% block body %}
 
 <div class="grid-x">
@@ -11,29 +31,52 @@
         <h3>Mijn Sollicitaties</h3>
         <br>
         <table>
-            <thead>
-                <th>Datum</th>
-                <th>Vacature</th>
-                <th>Bedrijf</th>
-                <th>Uitgenodigd</th>
-            </thead>
-             <tbody>
-                {% for data in sollicitaties %}
-                    <tr>
-                        <td>{{data.datetime|date("d/m/Y H:i")}}</td>
-                        <td><a href="/vacature/{{data.vacature.id}}" class="link">{{data.vacature.titel}}
-                            </a>
-                        </td> 
-                        <td><a href="/profiel/show/{{data.werkgever.id}}" class="link"> {{data.werkgever.naam}}</a>
-                        </td>
-                        <td>{% if data.uitgenodigd == 1 %} &#9989;
-                        
-                        {% endif %}
-                        </td>
-                    </tr>
-                {% endfor %}
-
-            </tbody>
+            {% if is_granted('ROLE_EMPLOYER')%}
+                <thead>
+                    <th>Datum</th>
+                    <th>Vacature</th>
+                    <th>Kandidaat</th>
+                    <th>Uitnodigen</th>
+                </thead>
+                <tbody>
+                    {% for data in sollicitaties %}
+                        <tr>
+                            <td>{{data.datetime|date("d/m/Y H:i")}}</td>
+                            <td><a href="/vacature/{{data.vacature.id}}" class="link">{{data.vacature.titel}}
+                                </a>
+                            </td> 
+                            <td><a href="/profile/{{data.kandidaat.id}}" class="link">{{data.kandidaat.voorletters}} {{data.kandidaat.naam}}</a>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-uitnodigen">Uitnodigen</button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            {% else %}
+                <thead>
+                    <th>Datum</th>
+                    <th>Vacature</th>
+                    <th>Bedrijf</th>
+                    <th>Uitgenodigd</th>
+                </thead>
+                <tbody>
+                    {% for data in sollicitaties %}
+                        <tr>
+                            <td>{{data.datetime|date("d/m/Y H:i")}}</td>
+                            <td><a href="/vacature/{{data.vacature.id}}" class="link">{{data.vacature.titel}}
+                                </a>
+                            </td> 
+                            <td><a href="/profile/{{data.werkgever.id}}" class="link"> {{data.werkgever.naam}}</a>
+                            </td>
+                            <td>{% if data.uitgenodigd == 1 %} &#9989;
+                            
+                            {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            {% endif %}
         </table>
     </div>
     

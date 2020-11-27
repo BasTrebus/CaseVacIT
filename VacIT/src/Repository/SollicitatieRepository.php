@@ -52,9 +52,13 @@ class SollicitatieRepository extends ServiceEntityRepository
         
     }
 
-    public function getSollicitaties($user_id)
+    public function getSollicitaties($user_id, $user_roles)
     {
-        $sollicitaties = $this->findBy(['kandidaat' => $user_id]);
+        if(in_array('ROLE_EMPLOYER', $user_roles)){
+            $sollicitaties = $this->findBy(['werkgever' => $user_id]);
+        } else {
+            $sollicitaties = $this->findBy(['kandidaat' => $user_id]);
+        }
         return(array("sollicitaties" => $sollicitaties));
     }
 

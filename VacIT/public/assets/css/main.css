@@ -183,3 +183,9 @@ a.header:active {
     font-family: 'BebasNeue';
     src: url('/assets/Fonts/BebasNeue/BebasNeue-Regular.ttf')
 }
+
+.btn {
+    background-color: #f15b24;
+    color: white;
+    padding: 6px;
+}

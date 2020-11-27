@@ -45,9 +45,10 @@ class UserController extends AbstractController
     {
         $user = $this->getUser();
         $user_id = $user->getId();
+        $user_roles = $user->getRoles();
 
         $rep = $this->getDoctrine()->getRepository(Sollicitatie::class);
-        $data = $rep->getSollicitaties($user_id);
+        $data = $rep->getSollicitaties($user_id, $user_roles);
 
         return $data;
     }
